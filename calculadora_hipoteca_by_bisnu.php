@@ -8,9 +8,6 @@ Version: 1.0.0
  */
 
 // Static variable to store shortcode attributes
-class Bisnu_Shortcode {
-    public static $atts = [];
-}
 
 // Enqueue scripts and styles
 function scripts_enqueue_bisnu() {
@@ -30,27 +27,6 @@ function scripts_enqueue_bisnu() {
         null,
         true // Load in footer
     );
-
-    // Check if shortcode attributes are set
-    if (!empty(Bisnu_Shortcode::$atts)) {
-        $atts = Bisnu_Shortcode::$atts;
-
-        // Generate dynamic CSS
-        $dynamic_css = "
-            #form_bisnu div label {
-                color: {$atts['label_text_color']};
-            }
-            #result_bisnu_one{
-                background-color: {$atts['result_primary_color']};
-            }
-            #result_bisnu_two{
-                background-color: {$atts['result_secondery_color']};
-            }
-        ";
-
-        // Add inline style to the enqueued stylesheet
-        wp_add_inline_style('calculator_css_bisnu', $dynamic_css);
-    }
 }
 add_action('wp_enqueue_scripts', 'scripts_enqueue_bisnu');
 
@@ -68,12 +44,30 @@ function calculate_shortcode_fn($atts, $content, $tag) {
     );
 
     // Store shortcode attributes in the static variable
-    Bisnu_Shortcode::$atts = $atts;
+    // Generate dynamic CSS
+    $content .= "<style>
+    #form_bisnu div label {
+        color: {$atts['label_text_color']};
+    }
+    #result_bisnu_one{
+        background-color: {$atts['result_primary_color']};
+    }
+    #result_bisnu_two{
+        background-color: {$atts['result_secondery_color']};
+    }
+    .input_bisnu{
+        border: 1px solid {$atts['result_primary_color']} !important
+    }
+    input[type='range']::-webkit-slider-thumb {
+        border: 3px solid {$atts['result_primary_color']};  
+    }
+</style>
+";
 
     // Include the template file
     ob_start();
     include_once plugin_dir_path(__FILE__) . "calculate_template.php";
-    $content = ob_get_clean();
+    $content .= ob_get_clean();
 
     return $content;
 }
