@@ -1,0 +1,262 @@
+* {
+    /*box-sizing: border-box;*/
+}
+
+.container_bisnu * {
+    font-family: "Aeonik", Sans-serif;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+.container_bisnu {
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+
+#form_bisnu {
+    /*border: 2px solid red;*/
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 50px 20px;
+}
+
+@media (max-width: 768px) {
+    #form_bisnu {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 30px;
+    }
+
+    #result_container {
+        grid-template-columns: 1fr !important;
+    }
+
+    #result_bisnu_two {
+        gap: 20px !important;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    #form_bisnu {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+    }
+}
+
+#form_bisnu div {
+    width: 100%;
+    /*border:1px solid red;*/
+    overflow: auto;
+}
+
+#form_bisnu div label {
+    /* color: #8ac59e; */
+    margin-bottom: 10px;
+}
+
+.input_bisnu {
+    box-sizing: border-box;
+    border: 1px solid #8ac59e !important;
+    outline: #8ac59e;
+    padding: 15px 30px !important;
+    border-radius: 50px !important;
+    display: block;
+    font-size: 16px;
+    width: 100% !important;
+    text-align: center;
+}
+
+#location {
+    text-align: left;
+}
+
+/*Result Section */
+
+#result_container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-top: 60px;
+    gap: 20px;
+}
+
+#result_bisnu_one {
+    /*border: 1px solid green;*/
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #7ebe93;
+}
+
+
+#result_bisnu_one h3 {
+    font-size: 40px;
+    font-weight: 900;
+    margin: 10px 0px;
+    color: black;
+}
+
+
+#result_bisnu_two {
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #e7f3ed;
+    display: flex;
+    gap: 0px 40px;
+}
+
+#result_bisnu_two div {
+    /*border:1px solid red;*/
+    width: 100%;
+}
+
+#bisnu_inside_two_one {
+    display: flex;
+    margin-top: 25px;
+}
+
+#bisnu_inside_two_two {
+    display: flex;
+    gap: 0px 10px;
+    margin-top: 25px;
+}
+
+.bisnu_fddfAet {
+    border-right: 2px solid gray;
+}
+
+/*input range style */
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    outline: none;
+    margin: 10px 0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 3px solid #7dbe93;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -6px;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #4c9aff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 5px;
+    background-color: #707070;
+    border-radius: 5px;
+}
+
+input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 5px;
+    background-color: #bbb;
+    border-radius: 5px;
+}
+
+input[type="range"]::-moz-range-progress {
+    height: 5px;
+    background-color: #4c9aff;
+    border-radius: 5px;
+}
+
+.input_parent {
+    position: relative;
+    box-sizing: border-box;
+}
+
+.input_parent button {
+    position: absolute;
+    font-size: 30px;
+    padding: 0px;
+    margin: 0px;
+    visibility: hidden;
+}
+
+.input_parent:hover.input_parent button {
+    visibility: visible;
+}
+
+.input_parent #left_btn {
+    top: 0;
+    left: 0;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    height: 100%;
+    width: 50px;
+    padding: 0px 50px;
+    color: #80bd95;
+    font-weight: bolder;
+    outline: none;
+}
+
+.input_parent #right_btn {
+    top: 0%;
+    right: 0;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    height: 100%;
+    width: 50px;
+    padding: 0px 50px;
+    color: #80bd95;
+    font-weight: bolder;
+    outline: none;
+}
+
+/*Hide Number Input Arrow */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+#saving_percentage_p {
+    position: absolute;
+    top: 0;
+    right: 20%;
+    height: 100%;
+    font-weight: bolder;
+    text-align: center;
+    line-height: 55px;
+}
+
+#parcent_input_parent{
+  position: relative;
+}
+#parcent_input_parent span{
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 43%;
+    line-height: 55px;
+    text-align: center;
+}
